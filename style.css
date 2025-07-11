@@ -1,3 +1,11 @@
+.colorTheme1{
+}
+.colorTheme2{
+}
+.colorTheme3{
+}
+
+
 html{
     height: 100%;
 }
@@ -10,7 +18,7 @@ body{
     margin: 0;
 }
 *{
-    outline: red 2px dotted;
+    outline: hsl(0, 100%, 100%) 2px dotted;
 }
 header{
     background-color: green;
@@ -22,8 +30,14 @@ header{
     flex-basis: 70%;
     height: 85%;
 }
-.sectionHistory{
+    .divTest{
+        padding: 2rem;
+    }
+.sectionHistoryMain{
     background-color: blue;
     flex-basis: 30%;
     height: 85%;
 }
+    .divHistory{
+        padding: 2rem;
+    }
