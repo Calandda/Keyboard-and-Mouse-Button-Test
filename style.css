@@ -32,7 +32,27 @@ header{
 }
     .divTest{
         padding: 2rem;
+        height: 92%;
+        display: grid;
+        grid-template-columns: repeat(4, 2fr);
+        grid-template-rows: 1fr 1fr 2fr;
+        grid-template-areas: 
+        "divLatest divInput divInput divMouse"
+        ". divInput divInput divMouse"
+        "divKeyboard divKeyboard divKeyboard divKeyboard";
     }
+        .divLatest{
+            grid-area: divLatest;
+        }
+        .divInput{
+            grid-area: divInput;
+        }
+        .divMouse{
+            grid-area: divMouse;
+        }
+        .divKeyboard{
+            grid-area: divKeyboard;
+        }
 .sectionHistoryMain{
     background-color: blue;
     flex-basis: 30%;
@@ -40,4 +60,8 @@ header{
 }
     .divHistory{
         padding: 2rem;
+        height: 100%;
     }
+        .sectionHistory{
+            height: 90%;
+        }
