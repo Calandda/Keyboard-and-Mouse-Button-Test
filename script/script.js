@@ -1,17 +1,36 @@
 class mainObj{
     constructor(){
         let currentPress = '';
-        const body = document.querySelector('body');
-        this.eventListenerKeyboard(body);
+        const pLatestKeyPress = '';
+        this.querySelectorAssign();
+        this.eventListenerAll();
     }
     buttonPressActivate(){
         
     }
-    eventListenerKeyboard(body){
-        body.addEventListener(('keydown'),(e)=>{
-            console.log(e);
+    querySelectorAssign(){
+        this.pLatestKeyPress = document.querySelector('.pLatestKeyPress');
+    }
+    eventListenerAll(){
+        const body = document.querySelector('body');
+
+        this.eventListenerKeyboard(body);
+        this.eventListenerMouse(body);
+    }
+    getTime(){
+        return new Date().toLocaleTimeString();
+    }
+    eventListenerKeyboard(elementTag){
+        elementTag.addEventListener(('keydown'),(e)=>{
+            this.currentPress = e.key;
+            this.pLatestKeyPress.textContent = e.key;
         });
+    }
+    eventListenerMouse(elementTag){
+        elementTag.addEventListener(('mousedown'),(e)=>{
+            this.currentPress = e.button;
+        })
     }
 }
 
-const main = new mainObj();
+const main = new mainObj();     

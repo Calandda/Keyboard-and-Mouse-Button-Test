@@ -44,6 +44,7 @@ header{
         .divLatest{
             grid-area: divLatest;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
