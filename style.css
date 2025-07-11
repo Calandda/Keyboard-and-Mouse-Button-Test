@@ -43,6 +43,9 @@ header{
     }
         .divLatest{
             grid-area: divLatest;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .divInput{
             grid-area: divInput;
