@@ -2,19 +2,22 @@ class mainObj{
     constructor(){
         const bodyTag = document.querySelector('body');
         this.currentPress = [];
-        this.buttonHistoryRaw = [];
-        this.buttonHistoryClean = [];
+        this.buttonHistory = [];
+        this.tempObject = {};
         this.pLatestKeyPress = document.querySelector('.pLatestKeyPress');
 
         bodyTag.addEventListener(('keydown'),(e)=>{
             this.currentPress = this.inputDown(e,this.currentPress, this.getTime());
         });
         bodyTag.addEventListener(('keyup'),(e)=>{
-            //this.buttonHistoryRaw.push(this.eventListenerFunctionPress(e));
+            this.tempObject = this.inputUp(e,this.currentPress, this.getTime(), this.buttonHistory);
+            this.currentPress = this.tempObject['currentPress'];
+            this.buttonHistory = this.tempObject['buttonHistory'];
+            console.log(this.buttonHistory);
         });   
-         elementTag.addEventListener(('mousedown'),(e)=>{
+        bodyTag.addEventListener(('mousedown'),(e)=>{
         });
-        elementTag.addEventListener(('mouseup'), (e)=>{
+        bodyTag.addEventListener(('mouseup'), (e)=>{
         });
     }
     getTime(){
@@ -27,7 +30,6 @@ class mainObj{
         // Work in Progress
     }
     inputDown(buttonStats,currentPress, buttonTime){
-        console.log(buttonStats, currentPress, 'test');
         let check = false;
         for (const key of currentPress){
             if(key['keyCode'] == buttonStats['keyCode']){
@@ -41,13 +43,26 @@ class mainObj{
                 {
                     key: buttonStats['key'],
                     keyCode: buttonStats['keyCode'],
-                    keyTime: buttonTime
+                    keyTimeStart: buttonTime,
+                    keyTimeEnd: ""
                 }
             );
             return currentPress;
         }
     }
-    inputUp(buttonStats,currentPress, buttonTime){
+    inputUp(buttonStats,currentPress, buttonTime, buttonHistory){
+        let check = false;
+        let tempObject = {"buttonHistory": buttonHistory, "currentPress": []};
+        for(const key of currentPress){
+            if(key['keyCode'] == buttonStats['keyCode']){
+                key['keyTimeEnd'] = buttonTime;
+                tempObject['buttonHistory'].push(key);
+                continue;
+            } else {
+                tempObject['currentPress'].push(key);
+            }
+        }
+        return(tempObject);
     }
 }
 
