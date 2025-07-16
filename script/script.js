@@ -8,22 +8,23 @@ class mainObj{
 
         bodyTag.addEventListener(('keydown'),(e)=>{
             this.currentPress = this.inputDown(e,this.currentPress, this.getTime());
+            this.refreshCurrentPressDisplay(this.currentPress);
         });
         bodyTag.addEventListener(('keyup'),(e)=>{
             this.tempObject = this.inputUp(e,this.currentPress, this.getTime(), this.buttonHistory);
             this.currentPress = this.tempObject['currentPress'];
             this.buttonHistory = this.tempObject['buttonHistory'];
-            console.log(this.buttonHistory);
+            this.clearCurrentPressDisplay();
         });   
         bodyTag.addEventListener(('mousedown'),(e)=>{
         });
         bodyTag.addEventListener(('mouseup'), (e)=>{
+            this.clearCurrentPressDisplay();
         });
     }
     getTime(){
         const options = {hour12: false};
         const currentTime = new Date().toLocaleTimeString('en-US', options);
-
         return currentTime;
     }
     eventListenerGamepad(elementTag){
@@ -51,7 +52,6 @@ class mainObj{
         }
     }
     inputUp(buttonStats,currentPress, buttonTime, buttonHistory){
-        let check = false;
         let tempObject = {"buttonHistory": buttonHistory, "currentPress": []};
         for(const key of currentPress){
             if(key['keyCode'] == buttonStats['keyCode']){
@@ -63,6 +63,26 @@ class mainObj{
             }
         }
         return(tempObject);
+    }
+    clearCurrentPressDisplay(){
+    };
+    refreshCurrentPressDisplay(currentPress){
+        const divLatest = document.querySelector('.divLatestHistory');
+        divLatest.replaceChildren();
+        for(const key of currentPress){
+            this.refreshCurrentPressDisplay_Single(key, divLatest);
+        }
+    }
+    refreshCurrentPressDisplay_Single(singlePress, divHistory){
+        const template = document.querySelector('.templateSingleButton');
+
+        const clonePress = template.content.cloneNode(true);
+        const pKey = clonePress.querySelector('.pLatestKeyPress');
+        const pTime = clonePress.querySelector('.pTime');
+
+        pKey.textContent = singlePress['key'];
+        pTime.textContent = singlePress['keyTimeStart'];
+        divHistory.appendChild(clonePress);
     }
 }
 

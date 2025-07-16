@@ -38,16 +38,33 @@ header{
         grid-template-rows: 1fr 1fr 2fr;
         grid-template-areas: 
         "divLatest divInput divInput divMouse"
-        ". divInput divInput divMouse"
+        "divLatest divInput divInput divMouse"
         "divKeyboard divKeyboard divKeyboard divKeyboard";
     }
         .divLatest{
             grid-area: divLatest;
             display: flex;
-            flex-direction: column;
+            flex-flow: row wrap;
             justify-content: center;
             align-items: center;
+            padding: 0px;
+            margin: 0px;
         }
+            h1{
+                flex-basis: 10%;
+            }
+            .divLatestHistory{
+                flex-basis: 90%;
+                height: 60%;
+                display: flex;
+                flex-flow: row wrap;
+            }
+                .divLatestKeyPress{
+                    flex-basis: 33%;
+                    height: 4rem;
+                    width: 4rem;
+                    text-align: center;
+                }
         .divInput{
             grid-area: divInput;
         }
@@ -69,3 +86,6 @@ header{
         .sectionHistory{
             height: 90%;
         }
+.divLatestPress{
+    border: 2px hsl(0, 100%, 100%) dotted;
+}
