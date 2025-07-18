@@ -92,10 +92,11 @@ class mainObj{
     createKeyboardLayout_Single(keyboardElement,keyboardKey){
     }
     refreshTableKeyHistory(tableElement,buttonHistory){
+        console.clear();
         for(let i = 0; i<buttonHistory.length-1;i++){
-            console.log('test',i);
             tableElement.deleteRow(0);
         }
+    
         for(const key of buttonHistory){
             let row = tableElement.insertRow(-1);
 
@@ -106,7 +107,6 @@ class mainObj{
             cell1.textContent = key['key'];
             cell2.textContent = key['keyTimeStart'];
             cell3.textContent = key['keyTimeEnd']
-            console.log(key)
         }
     };
 }
