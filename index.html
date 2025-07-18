@@ -5,43 +5,65 @@
         <meta charset = 'UTF-8'>
         <link href = 'style.css' rel="stylesheet">
     </head>
-    <body>
-        <header>
+    <body class = 'colorTheme1'>
+        <header class = ''>
             <h1>KEYBOARD AND MOUSE BUTTON TEST</h1>
         </header>
         <section class = 'sectionTest'>
             <div class = 'divTest'>
-                <div class = 'divLatest'>
+                <div class = 'divLatest colorTheme2'>
                     <h1>LATEST PRESS</h1>
                     <div class = 'divLatestHistory'>
                     </div>
                 </div>
                 <div class = 'divInput'>
-                    ALL PRESS
+                    <div class = 'divInputHistory colorTheme2'>
+                        
+                    </div>
                 </div>
-                <div class = 'divMouse'>
+                <div class = 'divMouse  colorTheme2'>
                     MOUSE PRESS
                 </div>
-                <div class = 'divKeyboard'>
-                    KEYBOARD PRESS
+                <div class = 'divKeyboard colorTheme2'>
+                    <div class = 'divKeyboardKeys'>
+                    </div>
                 </div>
             </div>
         </section>
         <section class = 'sectionHistoryMain'>
-            <div class = 'divHistory'>
-                <section class = 'sectionButton'>
+            <div class = 'divHistory '>
+                <section class = 'sectionButton colorTheme2'>
                     <button class = 'buttonReset'>
                         RESET
                     </button>
                 </section>
-                <section class = 'sectionHistory'>
-                   ASDSA
+                <section class = 'sectionHistory  colorTheme2'>
+                   <table class = 'tableKeyHistory'>
+                        <thead>
+                            <th scope = "col">KEY</th>
+                            <th scope = "col">TIME START</th>
+                            <th scope = "col">TIME END</th>
+                            <!--
+                            key: buttonStats['key'],
+                           keyCode: buttonStats['keyCode'],
+                            keyTimeStart: buttonTime,
+                            keyTimeEnd: ""
+                        -->
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope = "row">PRESS</th>
+                                <td>ANY</td>
+                                <td>KEY</td>
+                            </tr>
+                        </tbody>
+                   </table>
                 </section>
             </div>
         </section>
         <template class = 'templateSingleButton'>
             <div class = 'divLatestKeyPress'>
-                <p class = 'pLatestKeyPress'> LATEST KEY PRESS </p>
+                <p class = 'pLatestKeyPress borderBottom100'> LATEST KEY PRESS </p>
                 <p class = 'pTime'> TIME </p>
             </div>
         </template>

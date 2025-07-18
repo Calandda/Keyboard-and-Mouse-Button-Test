@@ -1,6 +1,8 @@
 class mainObj{
     constructor(){
         const bodyTag = document.querySelector('body');
+        const tableTag = document.querySelector('.tableKeyHistory').querySelector('tbody');;
+
         this.currentPress = [];
         this.buttonHistory = [];
         this.tempObject = {};
@@ -15,6 +17,7 @@ class mainObj{
             this.currentPress = this.tempObject['currentPress'];
             this.buttonHistory = this.tempObject['buttonHistory'];
             this.clearCurrentPressDisplay();
+            this.refreshTableKeyHistory(tableTag, this.buttonHistory);
         });   
         bodyTag.addEventListener(('mousedown'),(e)=>{
         });
@@ -84,6 +87,28 @@ class mainObj{
         pTime.textContent = singlePress['keyTimeStart'];
         divHistory.appendChild(clonePress);
     }
+    createKeyboardLayout(){
+    }
+    createKeyboardLayout_Single(keyboardElement,keyboardKey){
+    }
+    refreshTableKeyHistory(tableElement,buttonHistory){
+        for(let i = 0; i<buttonHistory.length-1;i++){
+            console.log('test',i);
+            tableElement.deleteRow(0);
+        }
+        for(const key of buttonHistory){
+            let row = tableElement.insertRow(-1);
+
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+
+            cell1.textContent = key['key'];
+            cell2.textContent = key['keyTimeStart'];
+            cell3.textContent = key['keyTimeEnd']
+            console.log(key)
+        }
+    };
 }
 
 const main = new mainObj();     
