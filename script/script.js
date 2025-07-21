@@ -81,10 +81,10 @@ class mainObj{
 
         const clonePress = template.content.cloneNode(true);
         const pKey = clonePress.querySelector('.pLatestKeyPress');
-        const pTime = clonePress.querySelector('.pTime');
+        //const pTime = clonePress.querySelector('.pTime');
 
         pKey.textContent = singlePress['key'];
-        pTime.textContent = singlePress['keyTimeStart'];
+        //pTime.textContent = singlePress['keyTimeStart'];
         divHistory.appendChild(clonePress);
     }
     createKeyboardLayout(){
@@ -97,7 +97,7 @@ class mainObj{
             tableElement.deleteRow(0);
         }
     
-        for(const key of buttonHistory){
+        for(const key of buttonHistory.reverse()){
             let row = tableElement.insertRow(-1);
 
             let cell1 = row.insertCell(0);

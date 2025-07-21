@@ -5,6 +5,10 @@
     background-color: hsla(0, 100%, 100%,0.20);
 }
 .colorTheme3{
+    background-color: hsla(209, 100%, 61%, 0.5);
+}
+.colorTheme4{
+    
 }
 .borderBottom100{
     border-bottom: 2px solid hsl(0, 0%, 100%);
@@ -84,6 +88,11 @@ header{
         .divKeyboard{
             grid-area: divKeyboard;
         }
+            .divKeyboardKeys{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
 .sectionHistoryMain{
     flex-basis: 30%;
     height: 85%;
@@ -108,7 +117,19 @@ header{
         }
             .sectionHistory > table{
                 width: 100%;
+                padding: 2rem;
             }
+                .sectionHistory > table > thead
+                {
+                    text-align: center;
+                }
+                
+                .sectionHistory > table > tbody > tr:nth-child(odd){
+                    background-color: hsla(0, 100%,100%, 0.5);
+                }
+                .sectionHistory > table > tbody > tr:first-child{
+                    background-color: hsla(0, 100%, 100%, 0.9);
+                }
 .divLatestPress{
     border: 2px hsl(0, 100%, 100%) dotted;
 }
